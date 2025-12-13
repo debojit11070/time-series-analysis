@@ -279,6 +279,6 @@ If you’re building real-world forecasting systems, mastering tools like `Stats
 Happy Forecasting 📈
 
 ---
-
+*Special thanks to freecodecamp for this*
 *If you found this useful, feel free to share it or adapt it for your own datasets.*
 
