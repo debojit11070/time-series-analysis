@@ -206,6 +206,35 @@ Strengths:
 - Captures trend & autocorrelation
 - Minimal manual tuning
 
+### Prophet Forecasting
+
+Prophet is an additive forecasting model developed by Facebook (Meta), ideal for time series with strong seasonality and trends. In the notebook, it is fitted with weekly and yearly seasonality enabled to capture typical bakery sales patterns (e.g., higher weekend sales and holiday peaks).
+
+**Key Features Demonstrated**:
+- Decomposes the forecast into interpretable components: trend, weekly, yearly, and additive terms.
+- Provides point forecasts (`yhat`) along with uncertainty intervals (`yhat_lower`, `yhat_upper`).
+- Easily extends predictions beyond the training period (e.g., monthly forecasts into 2024).
+
+**Strengths**: Highly interpretable, robust to missing data and outliers, and performs well on seasonal retail data with minimal tuning.
+
+### LSTM Deep Learning Forecasting
+
+The notebook implements a simple univariate LSTM model using TensorFlow/Keras to predict sales quantities.
+
+**Model Details**:
+- Input: 12 previous timesteps (look-back window)
+- Architecture: Single LSTM layer with 64 units → Dense output layer
+- Training: 50 epochs, Adam optimizer, MSE loss on MinMax-scaled data
+
+**Key Observations**:
+- Training loss decreases steadily, indicating the model learns patterns.
+- Predictions are generated on the training data (in-sample), showing reasonable fits but occasional negative values (invalid for sales quantities).
+
+**Strengths**: Capable of capturing complex non-linear dependencies.
+**Limitations in this implementation**: No train/validation split, univariate (ignores product structure), high compute time, and prone to unrealistic outputs without further constraints.
+
+In summary, Prophet offers quick, interpretable, and reliable forecasts suited to this seasonal data, while the basic LSTM demonstrates deep learning potential but requires more careful design and validation to compete effectively.
+
 ### 9.2 Exponential Smoothing (ETS)
 
 ```python
